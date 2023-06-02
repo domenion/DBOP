@@ -3,44 +3,41 @@ using DBOP.Interfaces;
 
 namespace DBOP.Tests
 {
-    [TableName("TEST_TABLE")]
+    [Table("TEST_TABLE")]
     public class TestEntity : IEntityBase
     {
-        [PrimaryKey]
-        [ColumnName("ID")]
-        public int ID { get; set; }
+        [Column("ID"), PrimaryKey]
+        public int? ID { get; set; }
 
-        [ColumnName("NAME")]
+        [Column("NAME")]
         public string? Name { get; set; }
 
-        [ColumnName("VALUE")]
+        [Column("VALUE")]
         public int? Value { get; set; }
 
-        [ColumnName("FLAG")]
+        [Column("FLAG")]
         public bool? Flag { get; set; }
 
-        [ColumnName("CREATED_DATE")]
+        [Column("CREATED_DATE")]
         public DateTime? CreatedDate { get; set; }
 
-        [ColumnName("MODIFIED_DATE")]
+        [Column("MODIFIED_DATE")]
         public DateTime? ModifiedDate { get; set; }
 
-        [ColumnName("SUB_TEST_TABLE_ID")]
+        [Column("SUB_TEST_TABLE_ID")]
         public int? SubTestTableID { get; set; }
 
-        [Relationship]
-        [ForeignKey("SUB_TEST_TABLE_ID")]
+        [Relationship, ForeignKey("SUB_TEST_TABLE_ID")]
         public IEnumerable<SubTestEntity>? SubTableList { get; set; }
     }
 
-    [TableName("SUB_TEST_TABLE")]
+    [Table("SUB_TEST_TABLE")]
     public class SubTestEntity : IEntityBase
     {
-        [PrimaryKey]
-        [ColumnName("ID")]
+        [Column("ID"), PrimaryKey]
         public int ID { get; set; }
 
-        [ColumnName("Value")]
+        [Column("VALUE")]
         public string? Value { get; set; }
     }
 }

@@ -7,7 +7,7 @@ public static class TypeExtension
 {
     public static string GetTableName(this Type type)
     {
-        var columnAttr = type.GetCustomAttributes(typeof(TableNameAttribute), false).FirstOrDefault() as TableNameAttribute;
+        var columnAttr = type.GetCustomAttributes(typeof(TableAttribute), false).FirstOrDefault() as TableAttribute;
         var name = columnAttr?.Name ?? "";
         if (string.IsNullOrWhiteSpace(name))
         {

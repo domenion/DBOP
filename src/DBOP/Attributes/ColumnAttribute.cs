@@ -1,9 +1,9 @@
 namespace DBOP.Attributes;
 
 [AttributeUsage(AttributeTargets.Property, AllowMultiple = false)]
-public class ColumnNameAttribute : Attribute
+public class ColumnAttribute : Attribute
 {
-    public ColumnNameAttribute(string name)
+    public ColumnAttribute(string name)
     {
         Name = name;
     }

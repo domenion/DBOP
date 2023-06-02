@@ -14,6 +14,20 @@ public class SelectCommandTest
     }
 
     [Fact]
+    public void TestSelectWithObject()
+    {
+        var ctx = new DBContext("");
+        var query = ctx.CreateMySqlQuery<TestEntity>();
+        query.Select(new TestEntity()
+        {
+            Name = "test"
+        });
+
+        const string expected = "SELECT * FROM TEST_TABLE AS T0 WHERE T0.NAME = @NAME0";
+        Assert.Equal(expected, query.CommandText);
+    }
+
+    [Fact]
     public void TestSelectBySpecificColumn()
     {
         var ctx = new DBContext("");
@@ -51,11 +65,11 @@ public class SelectCommandTest
             Name = "test_name"
         };
         query.Select(te);
-        query.LeftJoin(new SubTestEntity());
+        query.Join(new SubTestEntity(), direction: Constants.JoinDirection.LEFT);
 
         const string expected = "SELECT * FROM TEST_TABLE AS T0 LEFT JOIN SUB_TEST_TABLE AS JT0 ON JT0.ID = T0.ID WHERE T0.ID = @ID0 AND T0.NAME = @NAME0";
         Assert.Equal(expected, query.CommandText);
-        Assert.Equal(123, query.Parameters.First(p => p.Name == "@ID0")?.Value);
-        Assert.Equal("test_name", query.Parameters.First(p => p.Name == "@NAME0")?.Value);
+        Assert.Equal(te.ID, query.Parameters.First(p => p.Name == "@ID0")?.Value);
+        Assert.Equal(te.Name, query.Parameters.First(p => p.Name == "@NAME0")?.Value);
     }
 }

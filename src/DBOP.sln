@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBOP", "DBOP\DBOP.csproj", "{6E2E1E32-2358-4044-AF6C-F7EDDE980212}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DBOP.Tests", "DBOP.Tests\DBOP.Tests.csproj", "{F564FB19-5826-4605-9E92-CBB5BB809CCF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6E2E1E32-2358-4044-AF6C-F7EDDE980212}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E2E1E32-2358-4044-AF6C-F7EDDE980212}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E2E1E32-2358-4044-AF6C-F7EDDE980212}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E2E1E32-2358-4044-AF6C-F7EDDE980212}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F564FB19-5826-4605-9E92-CBB5BB809CCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F564FB19-5826-4605-9E92-CBB5BB809CCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F564FB19-5826-4605-9E92-CBB5BB809CCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F564FB19-5826-4605-9E92-CBB5BB809CCF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

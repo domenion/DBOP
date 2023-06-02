@@ -176,10 +176,10 @@ public abstract class Query<TEntity, TConnection, TCommand, TTransaction>
 
     public Query<TEntity, TConnection, TCommand, TTransaction> Select(string name = "", string aliases = "")
     {
-        return Select(new TEntity(), name, aliases);
+        return Select(default, name, aliases);
     }
 
-    public Query<TEntity, TConnection, TCommand, TTransaction> Select(TEntity entity, string name = "", string aliases = "")
+    public Query<TEntity, TConnection, TCommand, TTransaction> Select(TEntity? entity, string name = "", string aliases = "")
     {
         Aliases = aliases;
         if (string.IsNullOrWhiteSpace(Aliases))
@@ -206,7 +206,7 @@ public abstract class Query<TEntity, TConnection, TCommand, TTransaction>
                     continue;
                 }
 
-                this.Where(prop.Name.ToUpper(), value);
+                this.Where(prop.GetColumnName(), value);
             }
         }
 

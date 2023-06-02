@@ -8,7 +8,7 @@ public static class PropertyInfoExtension
 {
     public static string GetColumnName(this PropertyInfo property)
     {
-        var columnAttr = property.GetCustomAttributes(typeof(ColumnNameAttribute), false).FirstOrDefault() as ColumnNameAttribute;
+        var columnAttr = property.GetCustomAttributes(typeof(ColumnAttribute), false).FirstOrDefault() as ColumnAttribute;
         var name = columnAttr?.Name ?? "";
         if (string.IsNullOrWhiteSpace(name))
         {
